@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Arya:wght@400;700&family=Gotu&family=Noto+Serif+Devanagari:wght@100..900&family=Yatra+One&display=swap');
+
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background-color: #F1F5F4;
+}
+
+.hero_content {
+    color: #011C14;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 40%;
+    padding-left: 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero_content h1 {
+    color: #011C14;
+    font-size: 3rem;
+    font-family: "Noto Serif Devanagari", serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero_content p {
+    color: #6E706E;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.hero_btn {
+    background-color: #586F69;
+    padding: 10px 25px;
+    color: #F1F5F4;
+    font-weight: 400;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.hero_btn:hover {
+    background-color: #77998E;
+}
+
+.image_container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .image_container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .hero_image {
+        width: 100%;
+        height: 100%;
+        background-color: #F1F5F4;
+        object-fit: cover;
+        filter: brightness(35%); 
+    }
+
+    .hero_content {
+        max-width: 100%;
+        align-items: center;
+        padding: 20px;
+        z-index: 2;
+        position: relative;
+    }
+
+    .hero_content h1,
+    .hero_content p {
+        color: white;  
+    }
+}

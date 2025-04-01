@@ -1,0 +1,67 @@
+.footer {
+    background-color: #FFF;
+    color: #011C14;
+    padding: 8% 10%;
+    text-align:start;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+.footer-section h1 {
+    color: #586F69;
+    font-size: 3rem;
+    font-family: "Noto Serif Devanagari", serif;
+    font-weight: 600;
+}
+.footer-section h2,
+.footer-section h4 {
+    color: #586F69;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #011C14;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #586F69;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: flex-start;
+        justify-content: center;
+    }
+}
