@@ -5,15 +5,15 @@ import "./ShopByCategory.css";
 const categories = [
   {
     name: "Grains",
-    image: "/src/assets/grains.jpg",
+    image: "/assets/grains.jpg",
   },
   {
     name: "Aata",
-    image: "/src/assets/aata.jpg",
+    image: "/assets/aata.jpg",
   },
   {
     name: "Khichdi",
-    image: "/src/assets/khichdi.jpg",
+    image: "/assets/khichdi.jpg",
   },
 ];
 

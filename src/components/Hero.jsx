@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="image_container">
         <img
           className="hero_image"
-          src="src/assets/hero_img_right.png"
+          src="/assets/hero_img_right.png"
           alt="Grains and Flour"
         />
       </div>

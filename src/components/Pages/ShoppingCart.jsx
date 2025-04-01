@@ -28,7 +28,7 @@ const ShoppingCart = () => {
 
         <div className="cart-items">
           <div className="cart-item">
-            <img src="src/assets/Ref/hero3.jpg" alt="wheat" />
+            <img src="/assets/Ref/hero3.jpg" alt="wheat" />
             <div className="item-details">
               <p>Wheat</p>
               <div className="quantity">
@@ -41,7 +41,7 @@ const ShoppingCart = () => {
           </div>
 
           <div className="cart-item">
-            <img src="src/assets/Ref/hero3.jpg" alt="soyabean" />
+            <img src="/assets/Ref/hero3.jpg" alt="soyabean" />
             <div className="item-details">
               <p>Soyabean</p>
               <div className="quantity">

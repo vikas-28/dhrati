@@ -8,42 +8,42 @@ const products = [
     name: "Wheat",
     category: "Grains",
     price: 50,
-    image: "/src/assets/grains.jpg",
+    image: "/assets/grains.jpg",
   },
   {
     id: 2,
     name: "Soyabean",
     category: "Grains",
     price: 70,
-    image: "/src/assets/grains.jpg",
+    image: "/assets/grains.jpg",
   },
   {
     id: 3,
     name: "Ragi Atta",
     category: "Atta",
     price: 100,
-    image: "/src/assets/aata.jpg",
+    image: "/assets/aata.jpg",
   },
   {
     id: 4,
     name: "Moong Atta",
     category: "Atta",
     price: 120,
-    image: "/src/assets/aata.jpg",
+    image: "/assets/aata.jpg",
   },
   {
     id: 5,
     name: "Multigrain Atta",
     category: "Atta",
     price: 150,
-    image: "/src/assets/aata.jpg",
+    image: "/assets/aata.jpg",
   },
   {
     id: 6,
     name: "Mix Khichdi",
     category: "Khichdi",
     price: 200,
-    image: "/src/assets/khichdi.jpg",
+    image: "/assets/khichdi.jpg",
   },
 ];
 
@@ -83,7 +83,6 @@ const BuyProducts = () => {
         ))}
       </aside>
 
-      {/* Products Grid */}
       <div className="products-grid">
         {filteredProducts.map((product) => (
           <div className="product-card" key={product.id}>
