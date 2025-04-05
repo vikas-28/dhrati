@@ -49,7 +49,7 @@ const products = [
 
 const categories = ["All Products", "Grains", "Atta", "Khichdi"];
 
-const BuyProducts = () => {
+const BuyProducts = ({ cart, setCart }) => {
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [quantities, setQuantities] = useState({});
   const navigate = useNavigate();
@@ -120,7 +120,64 @@ const BuyProducts = () => {
               </button>
             </div>
 
-            <button className="add-to-cart">Add to Cart</button>
+            <button
+              className="add-to-cart"
+              onClick={() => {
+                const quantityToAdd = Number(quantities[product.id] || 5);
+                const existingItem = cart.find(
+                  (item) => item.id === product.id
+                );
+
+                if (existingItem) {
+                  const updatedCart = cart.map((item) =>
+                    item.id === product.id
+                      ? {
+                          ...item,
+                          quantity: item.quantity + quantityToAdd,
+                          price:
+                            item.price +
+                            (quantities[product.id] || 5) * (product.price / 5),
+                        }
+                      : item
+                  );
+
+                  setCart(updatedCart);
+                } else {
+                  setCart([
+                    ...cart,
+                    {
+                      id: product.id,
+                      name: product.name,
+                      quantity: quantityToAdd,
+                      price:
+                        Number(quantities[product.id] || 5) *
+                        (product.price / 5),
+                      image: product.image,
+                    },
+                  ]);
+                }
+              }}
+            >
+              Add to Cart
+            </button>
+
+            {/* <button
+              className="add-to-cart"
+              onClick={() => {
+                setCart([
+                  ...cart,
+                  {
+                    id: `${product.id}`,
+                    name: `${product.name}`,
+                    quantity: `${quantities[product.id] || 5}`,
+                    price: `${product.price}`,
+                    image: `${product.image}`,
+                  },
+                ]);
+              }}
+            >
+              Add to Cart
+            </button> */}
           </div>
         ))}
       </div>

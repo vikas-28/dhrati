@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import ShoppingCart from "./Pages/ShoppingCart";
 import "./Navbar.css";
 
-export default function Navbar() {
-  const [position, setPosition] = useState({ left: 1, width: 84, opacity: 1 });
+export default function Navbar({ cart, setCart }) {
+  const [position, setPosition] = useState({
+    left: 393,
+    width: 84,
+    opacity: 1,
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -14,10 +18,6 @@ export default function Navbar() {
         <NavLink className="logo" to="/">
           <span className="dh3"> धृti</span>
         </NavLink>
-
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          ☰
-        </div>
 
         <nav className={`nav-links ${isOpen ? "open" : ""}`}>
           <Tab
@@ -60,7 +60,11 @@ export default function Navbar() {
         </nav>
 
         <div className="cart-btn">
-          <ShoppingCart />
+          <ShoppingCart cart={cart} setCart={setCart} />
+        </div>
+
+        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+          ☰
         </div>
       </header>
       <div className="navbar-border"></div>

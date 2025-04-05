@@ -41,7 +41,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #011C14;
+    /* color: #011C14; */
     font-size: 1rem;
     transition: color 0.3s;
 }
@@ -84,6 +84,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .header{
+        justify-content: space-evenly;
+    }
     .hamburger {
         display: block;
     }

@@ -11,9 +11,12 @@ const Hero = () => {
         <p>
           Dhrati Mahila Farmer Producer Co.
           <br />
-          WHERE WOMEN SHINE
+          where women shine
         </p>
-        <p>authentic products</p>
+        <p>
+          Bringing you the finest grains and flours, straight from farms run by
+          women.
+        </p>
         <button className="hero_btn" onClick={() => navigate("/buyproducts")}>
           SHOP NOW
         </button>
