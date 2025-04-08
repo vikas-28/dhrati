@@ -8,6 +8,7 @@ const products = [
     name: "Wheat",
     category: "Grains",
     price: 50,
+    pricePerKg: 10,
     image: "/assets/grains.jpg",
   },
   {
@@ -15,6 +16,7 @@ const products = [
     name: "Soyabean",
     category: "Grains",
     price: 70,
+    pricePerKg: 14,
     image: "/assets/grains.jpg",
   },
   {
@@ -22,6 +24,7 @@ const products = [
     name: "Ragi Atta",
     category: "Atta",
     price: 100,
+    pricePerKg: 20,
     image: "/assets/aata.jpg",
   },
   {
@@ -29,6 +32,7 @@ const products = [
     name: "Moong Atta",
     category: "Atta",
     price: 120,
+    pricePerKg: 24,
     image: "/assets/aata.jpg",
   },
   {
@@ -36,6 +40,7 @@ const products = [
     name: "Multigrain Atta",
     category: "Atta",
     price: 150,
+    pricePerKg: 30,
     image: "/assets/aata.jpg",
   },
   {
@@ -43,6 +48,7 @@ const products = [
     name: "Mix Khichdi",
     category: "Khichdi",
     price: 200,
+    pricePerKg: 40,
     image: "/assets/khichdi.jpg",
   },
 ];
@@ -134,8 +140,8 @@ const BuyProducts = ({ cart, setCart }) => {
                       ? {
                           ...item,
                           quantity: item.quantity + quantityToAdd,
-                          price:
-                            item.price +
+                          cartPrice:
+                            item.cartPrice +
                             (quantities[product.id] || 5) * (product.price / 5),
                         }
                       : item
@@ -149,7 +155,8 @@ const BuyProducts = ({ cart, setCart }) => {
                       id: product.id,
                       name: product.name,
                       quantity: quantityToAdd,
-                      price:
+                      price: product.pricePerKg,
+                      cartPrice:
                         Number(quantities[product.id] || 5) *
                         (product.price / 5),
                       image: product.image,
@@ -160,24 +167,6 @@ const BuyProducts = ({ cart, setCart }) => {
             >
               Add to Cart
             </button>
-
-            {/* <button
-              className="add-to-cart"
-              onClick={() => {
-                setCart([
-                  ...cart,
-                  {
-                    id: `${product.id}`,
-                    name: `${product.name}`,
-                    quantity: `${quantities[product.id] || 5}`,
-                    price: `${product.price}`,
-                    image: `${product.image}`,
-                  },
-                ]);
-              }}
-            >
-              Add to Cart
-            </button> */}
           </div>
         ))}
       </div>
