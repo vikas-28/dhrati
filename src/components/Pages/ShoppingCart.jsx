@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./ShoppingCart.css";
+import CartContext from "../../context/CartContext";
 
-export default function ShoppingCart({ cart, setCart }) {
+export default function ShoppingCart() {
+  const { cart, setCart } = useContext(CartContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCart = () => {
@@ -34,15 +36,22 @@ export default function ShoppingCart({ cart, setCart }) {
       })
     );
   }
-  const cartTotal = cart.reduce((acc, item) => {
-    return acc + item.quantity * item.price;
-  }, 0);
+  const [cartTotal, setcartTotal] = useState(0);
+  useEffect(() => {
+    let total = 0;
+    setcartTotal(() => {
+      cart.map((item) => {
+        total += item.price * item.quantity;
+      });
+      return total;
+    });
+  }, [cart]);
   return (
     <>
       {/* Cart Icon on Right Side */}
       <button className="cart-icon" onClick={toggleCart}>
-        <FontAwesomeIcon icon={faCartShopping} style={{ color: "#586f69" }} />(
-        )
+        <FontAwesomeIcon icon={faCartShopping} style={{ color: "#586f69" }} />
+        <div className="cart-badge">({cart.length})</div>
       </button>
 
       {/* Shopping Cart Panel */}
@@ -80,7 +89,6 @@ export default function ShoppingCart({ cart, setCart }) {
           <p>
             Subtotal: <strong>₹{cartTotal}</strong>
           </p>
-          <button className="view-cart">View Cart</button>
           <button className="checkout">Checkout</button>
         </div>
       </div>

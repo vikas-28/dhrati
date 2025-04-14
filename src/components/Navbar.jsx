@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import ShoppingCart from "./Pages/ShoppingCart";
 import "./Navbar.css";
 
-export default function Navbar({ cart, setCart }) {
+export default function Navbar() {
   const [position, setPosition] = useState({
     left: 393,
     width: 84,
@@ -60,7 +60,7 @@ export default function Navbar({ cart, setCart }) {
         </nav>
 
         <div className="cart-btn">
-          <ShoppingCart cart={cart} setCart={setCart} />
+          <ShoppingCart />
         </div>
 
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>

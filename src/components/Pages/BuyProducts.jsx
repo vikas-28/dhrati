@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BuyProducts.css";
+import CartContext from "../../context/CartContext";
 
 const products = [
   {
@@ -55,7 +56,9 @@ const products = [
 
 const categories = ["All Products", "Grains", "Atta", "Khichdi"];
 
-const BuyProducts = ({ cart, setCart }) => {
+const BuyProducts = () => {
+  const { cart, setCart } = useContext(CartContext);
+
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [quantities, setQuantities] = useState({});
   const navigate = useNavigate();
