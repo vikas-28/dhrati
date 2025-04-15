@@ -38,20 +38,49 @@ export default function ShoppingCart() {
   }
   const [cartTotal, setcartTotal] = useState(0);
   useEffect(() => {
-    let total = 0;
+    // -------------------------
+    // using map method
+    // -------------------------
+    // let total = 0;
+    // setcartTotal(() => {
+    //   cart.map((item) => {
+    //     total += item.price * item.quantity;
+    //   });
+    //   return total;
+    // });
+
+    // -----------------------
+    // using reduce method
+    // -----------------------
     setcartTotal(() => {
-      cart.map((item) => {
-        total += item.price * item.quantity;
-      });
-      return total;
+      return cart.reduce((acc, item) => {
+        return (acc += item.price * item.quantity);
+      }, 0);
     });
   }, [cart]);
+
+  const [animateBadge, setAnimateBadge] = useState(false);
+  useEffect(() => {
+    if (cart.length === 1) {
+      setAnimateBadge(true);
+      const timeout = setTimeout(() => setAnimateBadge(false), 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [cart.length]);
   return (
     <>
       {/* Cart Icon on Right Side */}
-      <button className="cart-icon" onClick={toggleCart}>
-        <FontAwesomeIcon icon={faCartShopping} style={{ color: "#586f69" }} />
-        <div className="cart-badge">({cart.length})</div>
+      <button className="cart" onClick={toggleCart}>
+        <FontAwesomeIcon
+          className="cart-icon"
+          icon={faCartShopping}
+          style={{ color: "#586f69" }}
+        />
+        {cart.length > 0 && (
+          <span className={`cart-badge ${animateBadge && "pop"}`}>
+            {cart.length}
+          </span>
+        )}
       </button>
 
       {/* Shopping Cart Panel */}

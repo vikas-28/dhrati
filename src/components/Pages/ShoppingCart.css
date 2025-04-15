@@ -1,16 +1,50 @@
 /* Cart icon button - Positioned on the right side */
-.cart-icon {
+.cart {
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-icon{
+    z-index: 1;
   }
   .cart-badge{
     position :absolute;
-    bottom: 15px;
-    left:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    top: -15px;
+    right:-15px;
+    width:20px;
+    height: 20px;
+    background-color: #7A9D91;
+    color: #F1F5F4;
+    border: none;
+    border-radius: 50%;
+    z-index: 0;
   }
+  .pop {
+    animation: popIn 0.3s ease;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }  
   
   /* Shopping Cart - Now opens from the right */
   .shopping-cart {
