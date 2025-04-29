@@ -1,0 +1,86 @@
+.checkout-page {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: sans-serif;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .order-info,
+  .address-section,
+  .price-summary {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .order-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  
+  .order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .address-form input,
+  .address-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .address-form button,
+  .toggle-form-btn {
+    padding: 0.5rem 1rem;
+    background-color: #586F69;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .place-order-btn {
+    padding: 1rem;
+    background-color: #586F69;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .saved-address {
+    background-color: #e6f4ea;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .order-info,
+    .address-section {
+      width: 48%;
+    }
+  }
+  

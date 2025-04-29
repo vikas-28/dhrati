@@ -9,6 +9,7 @@ import ProductDetail from "./components/Pages/ProductDetail";
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer";
 import NotFound from "./components/Pages/NotFound";
+import Checkout from "./components/Pages/Checkout";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/buyproducts" element={<BuyProducts />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

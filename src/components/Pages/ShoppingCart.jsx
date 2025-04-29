@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./ShoppingCart.css";
@@ -118,7 +119,9 @@ export default function ShoppingCart() {
           <p>
             Subtotal: <strong>₹{cartTotal}</strong>
           </p>
-          <button className="checkout">Checkout</button>
+          <Link className="checkout" to="/checkout" onClick={toggleCart}>
+            Checkout
+          </Link>
         </div>
       </div>
     </>
