@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import CartContext from "./context/CartContext";
 import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
 import BuyProducts from "./components/Pages/BuyProducts";
 import ProductDetail from "./components/Pages/ProductDetail";
 import Home from "./components/Pages/Home";
@@ -17,7 +18,7 @@ function App() {
   return (
     <Router>
       <CartContext.Provider value={{ cart, setCart }}>
-        <Navbar />
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buyproducts" element={<BuyProducts />} />

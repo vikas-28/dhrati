@@ -6,9 +6,9 @@ import "./Navbar.css";
 
 export default function Navbar() {
   const [position, setPosition] = useState({
-    left: 393,
-    width: 84,
-    opacity: 1,
+    left: 500,
+    width: 0,
+    opacity: 0,
   });
   const [isOpen, setIsOpen] = useState(false);
 
