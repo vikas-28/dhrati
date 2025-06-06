@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "./BuyProducts.css";
 import CartContext from "../../context/CartContext";
 
@@ -59,7 +59,10 @@ const categories = ["All Products", "Grains", "Atta", "Khichdi"];
 const BuyProducts = () => {
   const { cart, setCart } = useContext(CartContext);
 
-  const [selectedCategory, setSelectedCategory] = useState("All Products");
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || "All Products";
+
+  const [selectedCategory, setSelectedCategory] = useState(category);
   const [quantities, setQuantities] = useState({});
   const navigate = useNavigate();
 

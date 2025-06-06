@@ -8,7 +8,7 @@ const categories = [
     image: "/assets/grains.jpg",
   },
   {
-    name: "Aata",
+    name: "Atta",
     image: "/assets/aata.jpg",
   },
   {
@@ -29,7 +29,7 @@ const ShopByCategory = () => {
           <div
             key={index}
             className="category-card"
-            onClick={() => navigate("/buyproducts")}
+            onClick={() => navigate(`/buyproducts?category=${category.name}`)}
           >
             <img
               src={category.image}

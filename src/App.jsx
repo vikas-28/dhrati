@@ -11,12 +11,14 @@ import Home from "./components/Pages/Home";
 import Footer from "./components/Footer";
 import NotFound from "./components/Pages/NotFound";
 import Checkout from "./components/Pages/Checkout";
+import ScrollToTop from "./components/Functional/ScrollToTop";
 
 function App() {
   const [cart, setCart] = useState([]);
 
   return (
     <Router>
+      <ScrollToTop />
       <CartContext.Provider value={{ cart, setCart }}>
         <Nav />
         <Routes>
