@@ -37,13 +37,31 @@ export default function Checkout() {
       (total, item) => total + item.price * item.quantity,
       0
     );
-    const discount = 69;
+
+    let discount = 0;
+    let discountPercent = 0;
+
+    if (mrp >= 500 && mrp <= 1000) {
+      discountPercent = 5;
+      discount = mrp * 0.05;
+    } else if (mrp > 1000) {
+      discountPercent = 10;
+      discount = mrp * 0.1;
+    }
+
     const gst = (mrp - discount) * 0.05;
     const total = mrp - discount + gst;
-    return { mrp, discount, gst, total };
+
+    return {
+      mrp: Math.round(mrp),
+      discount: Math.round(discount),
+      discountPercent,
+      gst: Math.round(gst),
+      total: Math.round(total),
+    };
   };
 
-  const { mrp, discount, gst, total } = calculatePrice();
+  const { mrp, discount, discountPercent, gst, total } = calculatePrice();
 
   return (
     <div className="checkout-page">
@@ -148,10 +166,14 @@ export default function Checkout() {
       </div>
 
       <div className="price-summary">
-        <h2>Price Details</h2>
+        <h2>
+          <strong>Price Details</strong>
+        </h2>
         <p>MRP: ₹{mrp}</p>
-        <p>Discount: -₹{discount}</p>
         <p>GST/Fees: ₹{gst}</p>
+        <p>
+          Discount ({discountPercent}%): -₹{discount}
+        </p>
         <hr />
         <p>
           <strong>Total: ₹{total}</strong>
