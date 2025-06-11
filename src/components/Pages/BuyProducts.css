@@ -48,6 +48,7 @@
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 20px;
     padding: 20px;
+    height: 100px;
 }
 
 .product-card {
@@ -127,19 +128,21 @@
     
 
     .sidebar {
-        position:sticky;
-        width: 90px;
+        position:absolute;
+        top:70px;
+        width: 95px;
         padding: 10px;
     }
 
     .products-grid {
-        position: sticky;
+        position:absolute;
+        left:95px;
         display: flex;
         flex-direction: column;
         padding: 10px;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(112px, 2fr));
-        height: 80px;
+        height: 10px;
         gap: 20px;
         padding: 20px;
     }

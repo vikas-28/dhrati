@@ -1,65 +1,67 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetail.css";
+import ProductsContext from "../../context/ProductsContext";
 
-const products = [
-  {
-    id: 1,
-    name: "Wheat",
-    category: "Grains",
-    price: 50,
-    image: "/assets/grains.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-  {
-    id: 2,
-    name: "Soyabean",
-    category: "Grains",
-    price: 70,
-    image: "/assets/grains.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-  {
-    id: 3,
-    name: "Ragi Atta",
-    category: "Atta",
-    price: 100,
-    image: "/assets/aata.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-  {
-    id: 4,
-    name: "Moong Atta",
-    category: "Atta",
-    price: 120,
-    image: "/assets/aata.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-  {
-    id: 5,
-    name: "Multigrain Atta",
-    category: "Atta",
-    price: 150,
-    image: "/assets/aata.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-  {
-    id: 6,
-    name: "Mix Khichdi",
-    category: "Khichdi",
-    price: 200,
-    image: "/assets/khichdi.jpg",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "Wheat",
+//     category: "Grains",
+//     price: 50,
+//     image: "/assets/grains.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+//   {
+//     id: 2,
+//     name: "Soyabean",
+//     category: "Grains",
+//     price: 70,
+//     image: "/assets/grains.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+//   {
+//     id: 3,
+//     name: "Ragi Atta",
+//     category: "Atta",
+//     price: 100,
+//     image: "/assets/aata.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+//   {
+//     id: 4,
+//     name: "Moong Atta",
+//     category: "Atta",
+//     price: 120,
+//     image: "/assets/aata.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+//   {
+//     id: 5,
+//     name: "Multigrain Atta",
+//     category: "Atta",
+//     price: 150,
+//     image: "/assets/aata.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+//   {
+//     id: 6,
+//     name: "Mix Khichdi",
+//     category: "Khichdi",
+//     price: 200,
+//     image: "/assets/khichdi.jpg",
+//     description:
+//       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+//   },
+// ];
 
 const ProductDetail = () => {
+  const { product: products } = useContext(ProductsContext);
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
   const [quantity, setQuantity] = useState(5);

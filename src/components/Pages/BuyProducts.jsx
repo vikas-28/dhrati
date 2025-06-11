@@ -2,62 +2,12 @@ import React, { useContext, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./BuyProducts.css";
 import CartContext from "../../context/CartContext";
-
-const products = [
-  {
-    id: 1,
-    name: "Wheat",
-    category: "Grains",
-    price: 50,
-    pricePerKg: 10,
-    image: "/assets/grains.jpg",
-  },
-  {
-    id: 2,
-    name: "Soyabean",
-    category: "Grains",
-    price: 70,
-    pricePerKg: 14,
-    image: "/assets/grains.jpg",
-  },
-  {
-    id: 3,
-    name: "Ragi Atta",
-    category: "Atta",
-    price: 100,
-    pricePerKg: 20,
-    image: "/assets/aata.jpg",
-  },
-  {
-    id: 4,
-    name: "Moong Atta",
-    category: "Atta",
-    price: 120,
-    pricePerKg: 24,
-    image: "/assets/aata.jpg",
-  },
-  {
-    id: 5,
-    name: "Multigrain Atta",
-    category: "Atta",
-    price: 150,
-    pricePerKg: 30,
-    image: "/assets/aata.jpg",
-  },
-  {
-    id: 6,
-    name: "Mix Khichdi",
-    category: "Khichdi",
-    price: 200,
-    pricePerKg: 40,
-    image: "/assets/khichdi.jpg",
-  },
-];
-
-const categories = ["All Products", "Grains", "Atta", "Khichdi"];
+import ProductsContext from "../../context/ProductsContext";
 
 const BuyProducts = () => {
   const { cart, setCart } = useContext(CartContext);
+  const { product: products, mockCategories: categories } =
+    useContext(ProductsContext);
 
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || "All Products";
@@ -83,7 +33,10 @@ const BuyProducts = () => {
     <div className="buy-products-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <h3>Categories</h3>
+        <h2>
+          <strong>Categories</strong>
+        </h2>
+        <br />
         {categories.map((category) => (
           <button
             key={category}
