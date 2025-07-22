@@ -10,7 +10,7 @@ import BuyProducts from "./components/Pages/BuyProducts";
 import ProductDetail from "./components/Pages/ProductDetail";
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer";
-import NotFound from "./components/Pages/NotFound";
+import NotFound from "./components/Pages/404NotFound";
 import Checkout from "./components/Pages/Checkout";
 import ScrollToTop from "./components/Functional/ScrollToTop";
 
