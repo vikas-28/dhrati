@@ -21,13 +21,12 @@ const NotFound = () => {
               </div>
 
               <div class="contant_box_404">
-                <h3 class="h2">Look like you're lost</h3>
+                <h3 class="h2">look's like you're lost</h3>
+                <p>the page you are looking for is not avaible!</p>
 
-                <p>the page you are looking for not avaible!</p>
-
-                <a href="" class="link_404">
-                  Go to Home
-                </a>
+                <Link to="/" class="link_404">
+                  Go back to Home
+                </Link>
               </div>
             </div>
           </div>
