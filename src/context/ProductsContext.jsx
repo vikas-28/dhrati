@@ -59,7 +59,7 @@ export default function ProductsContextProvider({ children }) {
     // api call
     const fetchData = async () => {
       const response = await fetch(
-        "https://dhrati-backend.onrender.com/api/products"
+        "https://dhrati-backend.onrender.com/products"
       );
       // const text = await response.text();
       // console.log(text);
