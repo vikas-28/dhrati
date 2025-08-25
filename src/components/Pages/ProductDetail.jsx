@@ -62,8 +62,9 @@ import ProductsContext from "../../context/ProductsContext";
 
 const ProductDetail = () => {
   const { product: products } = useContext(ProductsContext);
-  const { id } = useParams();
-  const product = products.find((item) => item.id === parseInt(id));
+  const { _id } = useParams();
+  // const product = products.find((item) => item._id === parseInt(_id));
+  const product = products.find((item) => item._id === _id);
   const [quantity, setQuantity] = useState(5);
 
   if (!product) {

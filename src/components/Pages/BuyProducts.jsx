@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./BuyProducts.css";
 import CartContext from "../../context/CartContext";
-import ProductsContext from "../../context/ProductsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 const BuyProducts = () => {
   const { cart, setCart } = useContext(CartContext);
@@ -50,34 +50,34 @@ const BuyProducts = () => {
 
       <div className="products-grid">
         {filteredProducts.map((product) => (
-          <div className="product-card" key={product.id}>
+          <div className="product-card" key={product._id}>
             <img
               src={product.image}
               alt={product.name}
-              onClick={() => navigate(`/product/${product.id}`)}
+              onClick={() => navigate(`/product/${product._id}`)}
             />
-            <h4 onClick={() => navigate(`/product/${product.id}`)}>
+            <h4 onClick={() => navigate(`/product/${product._id}`)}>
               {product.name}
             </h4>
-            <p>₹{(quantities[product.id] || 5) * (product.price / 5)}</p>
+            <p>₹{(quantities[product._id] || 5) * (product.price / 5)}</p>
 
             <div className="quantity-selector">
               <button
                 onClick={() =>
                   handleQuantityChange(
-                    product.id,
-                    Math.max(5, (quantities[product.id] || 5) - 5)
+                    product._id,
+                    Math.max(5, (quantities[product._id] || 5) - 5)
                   )
                 }
               >
                 -
               </button>
-              <span>{quantities[product.id] || 5} kg</span>
+              <span>{quantities[product._id] || 5} kg</span>
               <button
                 onClick={() =>
                   handleQuantityChange(
-                    product.id,
-                    (quantities[product.id] || 5) + 5
+                    product._id,
+                    (quantities[product._id] || 5) + 5
                   )
                 }
               >
@@ -88,20 +88,21 @@ const BuyProducts = () => {
             <button
               className="add-to-cart"
               onClick={() => {
-                const quantityToAdd = Number(quantities[product.id] || 5);
+                const quantityToAdd = Number(quantities[product._id] || 5);
                 const existingItem = cart.find(
-                  (item) => item.id === product.id
+                  (item) => item._id === product._id
                 );
 
                 if (existingItem) {
                   const updatedCart = cart.map((item) =>
-                    item.id === product.id
+                    item._id === product._id
                       ? {
                           ...item,
                           quantity: item.quantity + quantityToAdd,
                           cartPrice:
                             item.cartPrice +
-                            (quantities[product.id] || 5) * (product.price / 5),
+                            (quantities[product._id] || 5) *
+                              (product.price / 5),
                         }
                       : item
                   );
@@ -111,12 +112,12 @@ const BuyProducts = () => {
                   setCart([
                     ...cart,
                     {
-                      id: product.id,
+                      _id: product._id,
                       name: product.name,
                       quantity: quantityToAdd,
                       price: product.pricePerKg,
                       cartPrice:
-                        Number(quantities[product.id] || 5) *
+                        Number(quantities[product._id] || 5) *
                         (product.price / 5),
                       image: product.image,
                     },
