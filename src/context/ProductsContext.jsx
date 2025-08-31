@@ -16,24 +16,24 @@ const productReducer = (state, action) => {
 
 export default function ProductsContextProvider({ children }) {
   // const [product, setProduct] = useState([]);
-  const [state, dispatch] = useReducer(productReducer, []);
+  const [state, dispatch] = useReducer(productReducer, { products: null });
 
   const mockCategories = ["All Products", "Grains", "Atta", "Khichdi", "Sell"];
   useEffect(() => {
     // api call
     const fetchData = async () => {
-      // for prod
-      const response = await fetch(
-        "https://dhrati-backend.onrender.com/products"
-      );
-      // for local
-      // const response = await fetch("/api/products");
+      // ***** for prod *****
+      // const response = await fetch(
+      //   "https://dhrati-backend.onrender.com/products"
+      // );
+      // ***** for local *****
+      const response = await fetch("/api/products");
 
       // const text = await response.text();
       // console.log(text);
       const json = await response.json();
       if (response.ok) {
-        dispatch({ type: "GET_PRODUCTS", paylode: json });
+        dispatch({ type: "GET_PRODUCTS", payload: json });
         console.log(json);
       }
     };
