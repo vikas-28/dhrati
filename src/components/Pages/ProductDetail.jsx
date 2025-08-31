@@ -1,7 +1,52 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetail.css";
-import ProductsContext from "../../context/ProductsContext";
+import { ProductsContext } from "../../context/ProductsContext";
+import { useProductsContext } from "../../hooks/useProductsContext";
+
+const ProductDetail = () => {
+  // const { product: products } = useContext(ProductsContext);
+  const { products } = useProductsContext();
+  const { _id } = useParams();
+  // const product = products.find((item) => item._id === parseInt(_id));
+  const product = products.find((item) => item._id === _id);
+  const [quantity, setQuantity] = useState(5);
+
+  if (!product) {
+    return <h2 className="not-found-detail">Product not found!</h2>;
+  }
+
+  return (
+    <div className="product-detail-container">
+      <div className="product-detail-image">
+        <img src={product.image} alt={product.name} />
+      </div>
+
+      <div className="product-detail-info">
+        <h1>{product.name}</h1>
+        <p className="product-detail-description">{product.description}</p>
+        <p className="product-detail-price">
+          Price: ₹{(quantity / 5) * product.price}
+        </p>
+
+        <div className="quantity-detail-selector">
+          <button onClick={() => setQuantity(Math.max(5, quantity - 5))}>
+            -
+          </button>
+          <span>{quantity} kg</span>
+          <button onClick={() => setQuantity(quantity + 5)}>+</button>
+        </div>
+
+        <div className="product-detail-buttons">
+          <button className="add-to-cart-detail">Add to Cart</button>
+          <button className="buy-now-detail">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetail;
 
 // const products = [
 //   {
@@ -59,46 +104,3 @@ import ProductsContext from "../../context/ProductsContext";
 //       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
 //   },
 // ];
-
-const ProductDetail = () => {
-  const { product: products } = useContext(ProductsContext);
-  const { _id } = useParams();
-  // const product = products.find((item) => item._id === parseInt(_id));
-  const product = products.find((item) => item._id === _id);
-  const [quantity, setQuantity] = useState(5);
-
-  if (!product) {
-    return <h2 className="not-found">Product not found!</h2>;
-  }
-
-  return (
-    <div className="product-detail-container">
-      <div className="product-image">
-        <img src={product.image} alt={product.name} />
-      </div>
-
-      <div className="product-info">
-        <h1>{product.name}</h1>
-        <p className="product-description">{product.description}</p>
-        <p className="product-price">
-          Price: ₹{(quantity / 5) * product.price}
-        </p>
-
-        <div className="quantity-selector">
-          <button onClick={() => setQuantity(Math.max(5, quantity - 5))}>
-            -
-          </button>
-          <span>{quantity} kg</span>
-          <button onClick={() => setQuantity(quantity + 5)}>+</button>
-        </div>
-
-        <div className="product-buttons">
-          <button className="add-to-cart">Add to Cart</button>
-          <button className="buy-now">Buy Now</button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ProductDetail;
