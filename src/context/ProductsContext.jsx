@@ -23,11 +23,11 @@ export default function ProductsContextProvider({ children }) {
     // api call
     const fetchData = async () => {
       // ***** for prod *****
-      // const response = await fetch(
-      //   "https://dhrati-backend.onrender.com/products"
-      // );
+      const response = await fetch(
+        "https://dhrati-backend.onrender.com/products"
+      );
       // ***** for local *****
-      const response = await fetch("/api/products");
+      // const response = await fetch("/api/products");
 
       // const text = await response.text();
       // console.log(text);
