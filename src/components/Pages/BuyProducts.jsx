@@ -8,11 +8,7 @@ import { useProductsContext } from "../../hooks/useProductsContext";
 const BuyProducts = () => {
   const { cart, setCart } = useContext(CartContext);
   // const { product: products, mockCategories: categories } = useContext(ProductsContext);
-  const {
-    products,
-    dispatch,
-    mockCategories: categories,
-  } = useProductsContext();
+  const { products, mockCategories: categories } = useProductsContext();
 
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || "All Products";
