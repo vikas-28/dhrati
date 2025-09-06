@@ -36,13 +36,6 @@ export default function Navbar() {
           </Tab>
           <Tab
             setPosition={setPosition}
-            to="/sell"
-            onClick={() => setIsOpen(false)}
-          >
-            Sell
-          </Tab>
-          <Tab
-            setPosition={setPosition}
             to="/our-story"
             onClick={() => setIsOpen(false)}
           >

@@ -8,7 +8,7 @@ import { useProductsContext } from "./hooks/useProductsContext";
 import Navbar from "./components/Navbar";
 import Nav from "./components/Nav";
 import BuyProducts from "./components/Pages/BuyProducts";
-import SellProducts from "./components/Pages/SellProducts";
+import Dashboard from "./components/Pages/Dashboard";
 import ProductDetail from "./components/Pages/ProductDetail";
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer";
@@ -51,7 +51,7 @@ function App() {
           <Route path="/buyproducts" element={<BuyProducts />} />
           <Route path="/product/:_id" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/sellproducts" element={<SellProducts />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

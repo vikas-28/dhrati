@@ -1,0 +1,283 @@
+/* General Layout */
+.dashboard-container {
+  padding: 1rem;
+  background: #f1f8f4;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* Top Buttons */
+.dashboard-top-buttons {
+  display: flex;
+  flex-direction: row;   /* horizontal */
+  justify-content: center;
+  gap: 0.5rem;           /* small spacing between */
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-btn {
+  flex: 1;               /* each takes half row */
+  text-align: center;
+  background: #5b8a72;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-btn:hover {
+  background: #4a725f;
+}
+.dashboard-btn.active {
+  background: #4a725f;   /* darker green to show it's selected */
+  color: #fff;
+}
+
+.dashboard-btn.active:hover {
+  background: #4a725f;   /* stays same on hover */
+}
+
+/* Product Form */
+.dashboard-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dashboard-form-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2f4f4f;
+}
+
+.dashboard-form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2f4f4f;
+}
+
+.dashboard-form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.dashboard-form-input:focus {
+  border-color: #5b8a72;
+  box-shadow: 0 0 0 2px rgba(91,138,114,0.2);
+}
+
+.dashboard-submit-btn {
+  background: #5b8a72;
+  color: white;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-submit-btn:hover {
+  background: #4a725f;
+}
+
+/* Product List */
+.dashboard-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Product Card (always horizontal rectangle) */
+.dashboard-product-card {
+  display: flex;
+  flex-direction: row;       /* force horizontal */
+  align-items: center;       /* vertically center image/text/actions */
+  justify-content: flex-start;
+  background: #ffffff;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  gap: 1rem;
+}
+
+/* Image on the left */
+.dashboard-product-image {
+  flex-shrink: 0;       /* prevent stretching */
+  width: 40px;          /* fixed width */
+  height: 40px;         /* fixed height */
+  object-fit: cover;    /* crop instead of distort */
+  border-radius: 6px;   /* small rounded corners */
+  display: block;
+}
+
+
+
+/* Info in the middle */
+.dashboard-product-info {
+  flex: 1;                  /* take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard-product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2f4f4f;
+}
+
+.dashboard-product-price {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #5b8a72;
+}
+
+
+/* Actions on the right */
+.dashboard-product-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.dashboard-icon-btn {
+  background: #e8f0ec;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-icon-btn:hover {
+  background: #d3e4dc;
+}
+
+.dashboard-edit-btn {
+  color: #3a6f52;
+}
+
+.dashboard-delete-btn {
+  color: #a33a3a;
+}
+
+/* 🔹 Responsive (Desktop Grid, still horizontal cards) */
+@media (min-width: 768px) {
+  .dashboard-product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Modal Overlay */
+.dashboard-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.dashboard-modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.dashboard-modal-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.dashboard-modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dashboard-modal-content input {
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.dashboard-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.dashboard-cancel-btn {
+  background: #ccc;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.dashboard-cancel-btn:hover {
+  background: #aaa;
+}
+.dashboard-toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #4caf50; /* green for success */
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  z-index: 2000;
+  animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

@@ -126,13 +126,6 @@ export default function Navbar() {
             Shop
           </Tab>
           <Tab
-            ref={tabRefs["/sellproducts"]}
-            to="/sellproducts"
-            onClick={() => setIsOpen(false)}
-          >
-            Sell
-          </Tab>
-          <Tab
             ref={tabRefs["/our-story"]}
             to="/our-story"
             onClick={() => setIsOpen(false)}
