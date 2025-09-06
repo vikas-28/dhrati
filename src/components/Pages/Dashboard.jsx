@@ -26,7 +26,6 @@ export default function Dashboard() {
       {
         // ***** for local *****
         // const response = await fetch("/api/products", {
-
         method: "POST",
         body: JSON.stringify(product),
         headers: {
@@ -122,7 +121,7 @@ export default function Dashboard() {
           className={`dashboard-btn ${dash === "update" ? "active" : ""}`}
           onClick={() => setDash("update")}
         >
-          Update/Delete Products
+          Update/Delete
         </button>
         <button
           className={`dashboard-btn ${dash === "add" ? "active" : ""}`}

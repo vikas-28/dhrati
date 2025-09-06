@@ -1,9 +1,9 @@
 /* General Layout */
 .dashboard-container {
   padding: 1rem;
-  background: #f1f8f4;
+  background: #F1F5F4;
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
 }
 
 /* Top Buttons */
@@ -18,27 +18,28 @@
 .dashboard-btn {
   flex: 1;               /* each takes half row */
   text-align: center;
-  background: #5b8a72;
-  color: white;
+  background: #77998E;
+  color: #F1F5F4;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.9rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .dashboard-btn:hover {
-  background: #4a725f;
+  background: #5b8a72;
+  color: #F1F5F4;
 }
 .dashboard-btn.active {
-  background: #4a725f;   /* darker green to show it's selected */
-  color: #fff;
+  background: #5b8a72;   
+  color: #F1F5F4;
 }
 
 .dashboard-btn.active:hover {
-  background: #4a725f;   /* stays same on hover */
+  background: #5b8a72;   
 }
 
 /* Product Form */
@@ -48,27 +49,27 @@
   gap: 1rem;
   background: #ffffff;
   padding: 1.5rem;
-  border-radius: 16px;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .dashboard-form-title {
   font-size: 1.2rem;
-  font-weight: 700;
-  color: #2f4f4f;
+  font-weight: 600;
+  color: #011C14;
 }
 
 .dashboard-form-label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #2f4f4f;
+  color: #011C14;
 }
 
 .dashboard-form-input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
+  border: 1px solid #F1F5F4;
+  border-radius: 0.5rem;
   outline: none;
   font-size: 1rem;
 }
@@ -79,18 +80,18 @@
 }
 
 .dashboard-submit-btn {
-  background: #5b8a72;
-  color: white;
+  background: #586F69;
+  color: #F1F5F4;
   padding: 0.9rem;
   font-size: 1rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .dashboard-submit-btn:hover {
-  background: #4a725f;
+  background: #77998E;
 }
 
 /* Product List */
@@ -108,22 +109,20 @@
   justify-content: flex-start;
   background: #ffffff;
   padding: 0.8rem 1rem;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   gap: 1rem;
 }
 
 /* Image on the left */
 .dashboard-product-image {
   flex-shrink: 0;       /* prevent stretching */
-  width: 40px;          /* fixed width */
-  height: 40px;         /* fixed height */
+  width: 55px;          /* fixed width */
+  height: 55px;         /* fixed height */
   object-fit: cover;    /* crop instead of distort */
-  border-radius: 6px;   /* small rounded corners */
+  border-radius: 0.5rem;   /* small rounded corners */
   display: block;
 }
-
-
 
 /* Info in the middle */
 .dashboard-product-info {
@@ -136,13 +135,13 @@
 .dashboard-product-name {
   font-size: 1rem;
   font-weight: 600;
-  color: #2f4f4f;
+  color: #011C14;
 }
 
 .dashboard-product-price {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #5b8a72;
+  color: #586F69;
 }
 
 
@@ -156,11 +155,11 @@
 .dashboard-icon-btn {
   background: #e8f0ec;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   padding: 0.6rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .dashboard-icon-btn:hover {
@@ -207,7 +206,7 @@
 .dashboard-modal-content {
   background: #fff;
   padding: 1.5rem;
-  border-radius: 16px;
+  border-radius: 0.5rem;
   width: 90%;
   max-width: 400px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
@@ -253,8 +252,8 @@
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: #4caf50; /* green for success */
-  color: white;
+  background: #586F69; 
+  color: #F1F5F4;
   padding: 0.8rem 1.2rem;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
